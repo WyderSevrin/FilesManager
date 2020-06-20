@@ -5,4 +5,4 @@ On a aussi la possibiliter de crypter/décrypter les fichiers qu'on selectionne.
 #Executable
 L'executable de cette application ce trouve dans le répertoire EXECUTABLE.
 
-![alt text](https://github.com/WyderSevrin/FilesManager/tree/master/logoESIREM.png?raw=true)
+![alt text](https://github.com/WyderSevrin/FilesManager/blob/master/logoESIREM.png?raw=true)
