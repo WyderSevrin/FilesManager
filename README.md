@@ -9,4 +9,3 @@ L'executable de cette application ce trouve dans le répertoire EXECUTABLE.
 ![alt text](https://github.com/WyderSevrin/FilesManager/blob/master/interface.JPG?raw=true)
 
 Realiser dans le cadre d'un projet de l'ecole d'ingénieur ESIREM 
-![alt text](https://github.com/WyderSevrin/FilesManager/blob/master/logoESIREM.png?raw=true)
