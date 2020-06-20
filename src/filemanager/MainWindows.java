@@ -2,8 +2,6 @@ package filemanager;
 
 import Controller.Manager;
 import Model.Fichier;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
@@ -15,14 +13,11 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Interface de l'application
  */
 
 /**
@@ -39,14 +34,19 @@ public class MainWindows extends javax.swing.JFrame {
         init();
     }
     
+    /**
+     * Permet d'initialiser certains aspect visuel de l'apli
+     */
     private void init(){
-
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("img/ub.png"));
         this.manag = new Manager();
         this.tOutputeName.setText("");
         this.tOutputeDirectory.setText("");
     }
     
+    /**
+     * met à jour la liste des fichiers à afficher
+     */
     private void updateDisplayList(){
         listeDisplayer.removeAll();
         DefaultListModel modele = new DefaultListModel();
@@ -372,6 +372,10 @@ public class MainWindows extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_b_SearchActionPerformed
 
+    /**
+     * Permet de decrypter un ou plusieurs fichiers
+     * @param evt 
+     */
     private void b_cryptageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cryptageActionPerformed
         int[] indexSelectedFiles = this.listeDisplayer.getSelectedIndices();
         
@@ -466,7 +470,12 @@ public class MainWindows extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_p_RemonterActionPerformed
-
+    
+    /**
+     * Permet de changer l'ordre de la list à fusionner
+     * Remonte l'element selectionner
+     * @param evt 
+     */
     private void p_DescendreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p_DescendreActionPerformed
         int index = this.listeDisplayer.getSelectedIndex();
         //Si aucun element est selection alors on ne fais rien
@@ -476,7 +485,11 @@ public class MainWindows extends javax.swing.JFrame {
             this.updateDisplayList();
         }
     }//GEN-LAST:event_p_DescendreActionPerformed
-
+    
+    /**
+     * permet de supprimer un element ou plusieurs elements selectionner
+     * @param evt 
+     */
     private void p_SuppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p_SuppActionPerformed
         int index = this.listeDisplayer.getSelectedIndex();
         //Si aucun element est selection alors on ne fais rien
@@ -487,6 +500,10 @@ public class MainWindows extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_p_SuppActionPerformed
     
+    /**
+     * Permet de decrypter un ou plusieurs fichiers
+     * @param evt 
+     */
     private void b_decryptageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_decryptageActionPerformed
         int[] indexSelectedFiles = this.listeDisplayer.getSelectedIndices();
         for(int i=0; i<indexSelectedFiles.length;i++){
@@ -502,6 +519,10 @@ public class MainWindows extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_b_decryptageActionPerformed
 
+    /**
+     * permet de chercher un répertoire de sortie
+     * @param evt 
+     */
     private void jFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFindActionPerformed
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         jfc.setMultiSelectionEnabled(true);
@@ -515,7 +536,11 @@ public class MainWindows extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jFindActionPerformed
-
+    
+    /**
+     * Permet de vider la liste des fichiers 
+     * @param evt 
+     */
     private void p_Vider1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p_Vider1ActionPerformed
         this.manag.clear();
         this.updateDisplayList();

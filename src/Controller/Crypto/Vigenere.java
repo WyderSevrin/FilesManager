@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Permet de crypter un fichier par la méthode de vigenere
  */
 package Controller.Crypto;
 
@@ -17,6 +15,12 @@ public class Vigenere {
         
     }
     
+    /**
+     * Permet d'encoder un String grâce à une clé
+     * @param content le String a modifier
+     * @param key les clé utiliser pour modifier le String
+     * @return String, le String en entrée modifier
+     */
     public String encode(String content, ArrayList<Integer> key){
         String res ="";
         Caesar ces = new Caesar();
@@ -32,6 +36,12 @@ public class Vigenere {
         return res;
     }
     
+    /**
+     * Permet de décoder un String grâce à uen clé
+     * @param content le String a modifier
+     * @param key les clé utiliser pour modifier le String
+     * @return String, le String en entrée modifier
+     */
     public String decode(String content, ArrayList<Integer> key){
        String res ="";
         Caesar ces = new Caesar();

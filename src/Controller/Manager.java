@@ -11,9 +11,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+/**
+ * Cette classe permet de traiter tout les fonctionnaliter de l'application
+ * Elle gère le cryptage/décryptage ainsi que la concatènation
+ * @author Sevrin
+ */
 public class Manager {
     private ArrayList<Fichier> filesToDisplay;
     private ArrayList<Fichier> filesToTreat;
@@ -33,7 +36,12 @@ public class Manager {
         this.filesToDisplay = files;
         this.fileOutpute = output;
     }
-
+    
+    /**
+     * Permet de changer l'ordre des fichiers d'une arrayList.
+     * Fait avancer une objet en avant dans la liste
+     * @param f objet de type Fichier
+     */
     public void order_push_forward(Fichier f){
         int indexF1 = this.indexOfFiles(f);
         if(indexF1>0){
@@ -41,6 +49,11 @@ public class Manager {
         }
     }
 
+    /**
+     * Permet de changer l'ordre des fichiers d'une arrayList.
+     * Fait reculer une objet en arrière dans la liste
+     * @param f objet de type Fichier
+     */
     public void order_push_backwards(Fichier f){
         int indexF1 = this.indexOfFiles(f);
         if(indexF1<this.filesToDisplay.size()-1){
@@ -48,6 +61,11 @@ public class Manager {
         }
     }
 
+    /**
+     * Permet de récupérer l'index d'un fichier situer dans l'arrayListe  
+     * @param File objet de type Fichier
+     * @return int
+     */
     public int indexOfFiles(Fichier File){
         int counter =0;
         Boolean found = false;
@@ -59,12 +77,14 @@ public class Manager {
                 counter++;
             }
         }
-//        if(!found){
-//            System.out.println("Erreur !!! ----msg :Fichier non trouver-----");
-//        }
         return counter;
     }
     
+    /**
+     * Permet de récupérer l'index d'un fichier situer dans l'arrayListe  
+     * @param name String
+     * @return int
+     */
     public int findIndex(String name){
         int index = 0;
         for(Fichier f : this.filesToDisplay){
@@ -76,7 +96,10 @@ public class Manager {
         return index;
     }
 
-
+    /**
+     * Permet de lancer la concatenation des fichiers de l'arrayListe
+     * @throws IOException 
+     */
     public void StartConcatene() throws IOException {
         Charset charset = Charset.forName("US-ASCII");
         String contenu = null;
@@ -114,6 +137,12 @@ public class Manager {
         this.filesToTreat.clear();
     }
     
+    /**
+     * Permet de lancer l'algo de cryptage sur un fichier
+     * @param f objet de type Fichier
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public void Crypter(Fichier f) throws FileNotFoundException, IOException{
         Vigenere vig = new Vigenere();
         ArrayList<Integer> key = new ArrayList<>();
@@ -158,6 +187,12 @@ public class Manager {
         }
     }
     
+    /**
+     * Permet de lancer l'algo de décryptage d'un fichier
+     * @param f objet de type Fichier
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public void Decrypter(Fichier f) throws FileNotFoundException, IOException{
         Vigenere vig = new Vigenere();
         ArrayList<Integer> key = new ArrayList<>();
@@ -202,12 +237,18 @@ public class Manager {
         }
     }
     
-    
+    /**
+     * permet d'ajouter un fichier
+     * @param f objet de type Fichier
+     */
     public void addFile(File f){
         
         this.filesToDisplay.add(new Fichier(f));
     }
     
+    /**
+     * Netoye la liste des fichiers
+     */
     public void clear(){
         this.filesToDisplay.clear();
         
@@ -225,7 +266,10 @@ public class Manager {
     public void setOutpute(String out){
         this.fileOutpute =out;
     }
-    //Show File List
+    
+    /**
+     * Permet d'afficher la liste des fichiers dans la console
+     */
     public void showFileList(){
         for(Fichier f : this.filesToDisplay){
             System.out.println(f.getNom());

@@ -1,12 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller.Crypto;
 
 /**
- *
+ * Permet de crypter/d'écripter une ligne en utilisant l'algo de césar
+ * Utiliser par la suite dans l'algo de vigenere
+ * Encode que les caractères majuscules et minuscules ainsi que les différentes ponctuation et symbole;
+ * N'encode pas les caractères spéciaux comme "DEL", "ESC", etc..
  * @author Sevrin
  */
 public class Caesar {
@@ -14,22 +13,13 @@ public class Caesar {
         
     }
     
+    /**
+     * Permet d'encoder un String
+     * @param message String
+     * @param val int, clé
+     * @return String encoder
+     */
     public String encode(String message,int val){
-//        message = message.toLowerCase();
-//        StringBuilder result = new StringBuilder();
-//        for (char character : message.toCharArray()) {
-//            if (character != ' ') {
-//                int originalAlphabetPosition = character - 'a';
-//                int newAlphabetPosition = (originalAlphabetPosition + val) % 26;
-//                char newCharacter = (char) ('a' + newAlphabetPosition);
-//                result.append(newCharacter);
-//            } else {
-//                result.append(character);
-//            }
-//        }
-//        return result.toString();
-
-        //de 33 a 126 inclue
         String result ="";
         for(char c : message.toCharArray()){
             if((int)c != 32){ //espace
@@ -54,7 +44,12 @@ public class Caesar {
     }
     
     
-    
+    /**
+     * Permet de décoder
+     * @param message String
+     * @param val int, clé
+     * @return String decoder
+     */
     public String decode(String message,int val){
         return encode(message, -val);
     }
