@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="FileManager.jar" size="35351" download="eager" />
+    <jar href="FileManager.jar" size="35336" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="Main"  name="FileManager" />
   <update check="always"/>

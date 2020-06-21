@@ -1,6 +1,8 @@
 # FilesManager
-Cette application permet de fussionner plusieurs fichiers dans un ordre donné.
-On a aussi la possibilitée de crypter/décrypter les fichiers qu'on selectionne.
+Cette application est coder grâce à l'IDE NetBeans.
+Le but de cette application est de fussionner plusieurs fichiers dans un ordre donné. Cette ordre est modifiable par l'utilisateur.
+On a aussi accès a plusieurs fonctionnalité comme renomer, supprimer ou duppliquer un fichier.
+On peut aussi crypter/décrypter les fichiers qu'on selectionne.
 
 # Executable
 L'executable de cette application ce trouve dans le répertoire EXECUTABLE sous forme .exe et .jar.

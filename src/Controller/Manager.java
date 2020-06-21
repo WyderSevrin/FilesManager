@@ -6,9 +6,12 @@ import Model.Fichier;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -94,6 +97,52 @@ public class Manager {
             }
         }
         return index;
+    }
+    
+    /**
+     * Permet de dupliquer un fichier
+     * @param f fichier a duppliquer
+     * @param output la sortie du fichier
+     * @throws IOException 
+     */
+    public void Duppliquer(Fichier f, Path output) throws IOException{
+        Path copied =output;
+        Path originalPath = f.getChemin();
+        Files.copy(originalPath, copied, StandardCopyOption.REPLACE_EXISTING);
+        this.filesToTreat.clear();
+    }
+    
+    /**
+     * Permet de renommer un fichier
+     * @param f fichier a renommer
+     * @param name le nom du fichier
+     * @throws IOException 
+     */
+    public void Renommer(Fichier f,String name) throws IOException{
+        Path originalPath = f.getChemin();
+        Path outputPath = Paths.get(f.getChemin().getParent()+name);
+        Files.move(originalPath,originalPath.resolveSibling(name));
+        this.filesToTreat.clear();
+    }
+    
+    /**
+     * Permet de supprimer un fichier
+     * @param f fichier a Supprimer
+     * @throws IOException 
+     */
+    public void Supprimer(Fichier f) throws IOException{
+        remove(f);
+        try {
+            if(Files.exists(f.getChemin())){
+                Files.delete(f.getChemin());
+            }
+            } catch (NoSuchFileException x) {
+                System.err.format("%s:" + " chemin introuvable %n", f.getChemin());
+            } catch (IOException x) {
+                // problèmes de permission
+                System.err.println(x);
+        }
+
     }
 
     /**

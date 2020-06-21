@@ -89,6 +89,9 @@ public class MainWindows extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         b_decryptage = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        b_Duppliquer = new javax.swing.JButton();
+        b_Renommer = new javax.swing.JButton();
+        b_SupprimerFichier = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -110,7 +113,7 @@ public class MainWindows extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(188, 188, 188)
                 .addComponent(b_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(280, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +178,7 @@ public class MainWindows extends javax.swing.JFrame {
                             .addGroup(p_ListeLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 12, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         p_ListeLayout.setVerticalGroup(
             p_ListeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +225,7 @@ public class MainWindows extends javax.swing.JFrame {
         jLabel4.setText("Repetoire");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Sortie de la Fussion");
+        jLabel2.setText("Sortie");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -271,6 +274,27 @@ public class MainWindows extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoESIREM.png"))); // NOI18N
 
+        b_Duppliquer.setText("Duppliquer");
+        b_Duppliquer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_DuppliquerActionPerformed(evt);
+            }
+        });
+
+        b_Renommer.setText("Renommer");
+        b_Renommer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_RenommerActionPerformed(evt);
+            }
+        });
+
+        b_SupprimerFichier.setText("Supprimer");
+        b_SupprimerFichier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_SupprimerFichierActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout p_controlsLayout = new javax.swing.GroupLayout(p_controls);
         p_controls.setLayout(p_controlsLayout);
         p_controlsLayout.setHorizontalGroup(
@@ -279,16 +303,24 @@ public class MainWindows extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(p_controlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(p_controlsLayout.createSequentialGroup()
-                        .addComponent(b_Fussionner, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(b_cryptage, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(b_decryptage, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 99, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_controlsLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(p_controlsLayout.createSequentialGroup()
+                        .addGroup(p_controlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(p_controlsLayout.createSequentialGroup()
+                                .addComponent(b_Fussionner, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(b_cryptage, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(p_controlsLayout.createSequentialGroup()
+                                .addComponent(b_Duppliquer, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(b_Renommer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(p_controlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(b_decryptage, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                            .addComponent(b_SupprimerFichier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 76, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         p_controlsLayout.setVerticalGroup(
@@ -299,9 +331,14 @@ public class MainWindows extends javax.swing.JFrame {
                     .addComponent(b_cryptage, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_Fussionner, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b_decryptage, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(p_controlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(b_Duppliquer, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                    .addComponent(b_Renommer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(b_SupprimerFichier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addGap(71, 71, 71)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -314,7 +351,7 @@ public class MainWindows extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(p_Liste, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(p_controls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -546,6 +583,62 @@ public class MainWindows extends javax.swing.JFrame {
         this.updateDisplayList();
     }//GEN-LAST:event_p_Vider1ActionPerformed
 
+    private void b_DuppliquerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_DuppliquerActionPerformed
+        int[] indexSelectedFiles = this.listeDisplayer.getSelectedIndices();
+        if(indexSelectedFiles.length==1 ){
+            String fname = this.listeDisplayer.getModel().getElementAt(indexSelectedFiles[0]);
+            Fichier f = this.manag.getFilesToConcat().get(this.manag.findIndex(fname));
+            
+                Path outputpath = Paths.get(this.tOutputeDirectory.getText()+"/"+this.tOutputeName.getText());
+            try {
+                System.out.println("Duppliquer");
+                this.manag.Duppliquer(f,outputpath);
+            } catch (IOException ex) {
+                Logger.getLogger(MainWindows.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+
+        }
+        updateDisplayList();
+    }//GEN-LAST:event_b_DuppliquerActionPerformed
+
+    private void b_RenommerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_RenommerActionPerformed
+        int[] indexSelectedFiles = this.listeDisplayer.getSelectedIndices();
+        if(indexSelectedFiles.length==1 ){
+            String fname = this.listeDisplayer.getModel().getElementAt(indexSelectedFiles[0]);
+            Fichier f = this.manag.getFilesToConcat().get(this.manag.findIndex(fname));
+            try {
+                System.out.println("Renommer");
+                this.manag.Renommer(f,this.tOutputeName.getText());
+            } catch (IOException ex) {
+                Logger.getLogger(MainWindows.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+            
+       updateDisplayList();    
+
+        
+    }//GEN-LAST:event_b_RenommerActionPerformed
+
+    private void b_SupprimerFichierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_SupprimerFichierActionPerformed
+       int[] indexSelectedFiles = this.listeDisplayer.getSelectedIndices();
+        for(int i=0; i<indexSelectedFiles.length;i++){
+            String fname = this.listeDisplayer.getModel().getElementAt(indexSelectedFiles[i]);
+            Fichier f = this.manag.getFilesToConcat().get(this.manag.findIndex(fname));
+            
+                Path outputpath = Paths.get(this.tOutputeDirectory.getText()+"/"+this.tOutputeName.getText());
+            try {
+                System.out.println("Duppliquer");
+                this.manag.Supprimer(f);
+            } catch (IOException ex) {
+                Logger.getLogger(MainWindows.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+
+        }
+        updateDisplayList();
+    }//GEN-LAST:event_b_SupprimerFichierActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -582,8 +675,11 @@ public class MainWindows extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b_Duppliquer;
     private javax.swing.JButton b_Fussionner;
+    private javax.swing.JButton b_Renommer;
     private javax.swing.JButton b_Search;
+    private javax.swing.JButton b_SupprimerFichier;
     private javax.swing.JButton b_cryptage;
     private javax.swing.JButton b_decryptage;
     private javax.swing.JButton jFind;
