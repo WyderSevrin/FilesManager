@@ -3,7 +3,7 @@ Cette application permet de fussionner plusieurs fichiers dans un ordre donné.
 On a aussi la possibilitée de crypter/décrypter les fichiers qu'on selectionne.
 
 # Executable
-L'executable de cette application ce trouve dans le répertoire EXECUTABLE.
+L'executable de cette application ce trouve dans le répertoire EXECUTABLE sous forme .exe et .jar.
 
 # Visuel
 ![alt text](https://github.com/WyderSevrin/FilesManager/blob/master/interface.JPG?raw=true)
