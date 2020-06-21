@@ -584,38 +584,61 @@ public class MainWindows extends javax.swing.JFrame {
     }//GEN-LAST:event_p_Vider1ActionPerformed
 
     private void b_DuppliquerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_DuppliquerActionPerformed
-        int[] indexSelectedFiles = this.listeDisplayer.getSelectedIndices();
-        if(indexSelectedFiles.length==1 ){
-            String fname = this.listeDisplayer.getModel().getElementAt(indexSelectedFiles[0]);
-            Fichier f = this.manag.getFilesToConcat().get(this.manag.findIndex(fname));
-            
-                Path outputpath = Paths.get(this.tOutputeDirectory.getText()+"/"+this.tOutputeName.getText());
-            try {
-                System.out.println("Duppliquer");
-                this.manag.Duppliquer(f,outputpath);
-            } catch (IOException ex) {
-                Logger.getLogger(MainWindows.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
+        
+        
+        if(!tOutputeName.getText().equals("") && !tOutputeDirectory.getText().equals("")){
+            int[] indexSelectedFiles = this.listeDisplayer.getSelectedIndices();
+            if(indexSelectedFiles.length==1 ){
+                String fname = this.listeDisplayer.getModel().getElementAt(indexSelectedFiles[0]);
+                Fichier f = this.manag.getFilesToConcat().get(this.manag.findIndex(fname));
 
+                    Path outputpath = Paths.get(this.tOutputeDirectory.getText()+"/"+this.tOutputeName.getText());
+                try {
+                    System.out.println("Duppliquer");
+                    this.manag.Duppliquer(f,outputpath);
+                } catch (IOException ex) {
+                    Logger.getLogger(MainWindows.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+
+            }
+        
+        }else if(tOutputeName.getText().equals("") && !tOutputeDirectory.getText().equals("")){
+            int[] indexSelectedFiles = this.listeDisplayer.getSelectedIndices();
+            if(indexSelectedFiles.length==1 ){
+                String fname = this.listeDisplayer.getModel().getElementAt(indexSelectedFiles[0]);
+                Fichier f = this.manag.getFilesToConcat().get(this.manag.findIndex(fname));
+                    Path outputpath = Paths.get(this.tOutputeDirectory.getText()+"/"+f.getNom()+"Copied.txt");
+                try {
+                    System.out.println("Duppliquer");
+                    this.manag.Duppliquer(f,outputpath);
+                } catch (IOException ex) {
+                    Logger.getLogger(MainWindows.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+
+            }
         }
         updateDisplayList();
     }//GEN-LAST:event_b_DuppliquerActionPerformed
 
     private void b_RenommerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_RenommerActionPerformed
-        int[] indexSelectedFiles = this.listeDisplayer.getSelectedIndices();
-        if(indexSelectedFiles.length==1 ){
-            String fname = this.listeDisplayer.getModel().getElementAt(indexSelectedFiles[0]);
-            Fichier f = this.manag.getFilesToConcat().get(this.manag.findIndex(fname));
-            try {
-                System.out.println("Renommer");
-                this.manag.Renommer(f,this.tOutputeName.getText());
-            } catch (IOException ex) {
-                Logger.getLogger(MainWindows.class.getName()).log(Level.SEVERE, null, ex);
+        if(!tOutputeName.getText().equals("")){
+            int[] indexSelectedFiles = this.listeDisplayer.getSelectedIndices();
+            if(indexSelectedFiles.length==1 ){
+                String fname = this.listeDisplayer.getModel().getElementAt(indexSelectedFiles[0]);
+                Fichier f = this.manag.getFilesToConcat().get(this.manag.findIndex(fname));
+                try {
+                    System.out.println("Renommer");
+                    this.manag.Renommer(f,this.tOutputeName.getText());
+                } catch (IOException ex) {
+                    Logger.getLogger(MainWindows.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
             
-       updateDisplayList();    
+            updateDisplayList();    
+        }
+          
 
         
     }//GEN-LAST:event_b_RenommerActionPerformed

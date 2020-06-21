@@ -109,7 +109,7 @@ public class Manager {
         Path copied =output;
         Path originalPath = f.getChemin();
         Files.copy(originalPath, copied, StandardCopyOption.REPLACE_EXISTING);
-        this.filesToTreat.clear();
+        //this.filesToTreat.clear();
     }
     
     /**
@@ -122,7 +122,8 @@ public class Manager {
         Path originalPath = f.getChemin();
         Path outputPath = Paths.get(f.getChemin().getParent()+name);
         Files.move(originalPath,originalPath.resolveSibling(name));
-        this.filesToTreat.clear();
+        f.setChemin(originalPath.resolveSibling(name));
+        f.setNom(name);
     }
     
     /**
